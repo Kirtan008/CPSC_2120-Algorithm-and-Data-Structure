@@ -19,23 +19,18 @@ Table::Table(){
 Table::Table(int s){
   size = s;
   table = new Node**[size];
-  for (int i = 0; i < size; ++i)
-  {
+  for (int i = 0; i < size; ++i){
     table[i] = new Node* [size];
-    for (int j = 0; j < size; ++j)
-    {
+    for (int j = 0; j < size; ++j){
       table[i][j] = NULL;
     }
   }
 }
 
 Table::~Table(){
-  for (int i=0; i < size; i++)
-  {
-      for(int j = 0; j < size; j++)
-      {
-        while (table[i][j] != NULL)
-        {
+  for (int i=0; i < size; i++){
+      for(int j = 0; j < size; j++){
+        while (table[i][j] != NULL){
           Node *temp = table[i][j];
           table[i][j] = table[i][j]->next;
           delete temp;
